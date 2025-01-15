@@ -1,0 +1,25 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "127.0.0.1:17892:8000"
+      - "127.0.0.1:17891:17891"
+    volumes:
+      - ./backend/src/:/src/
+    networks:
+      - monitor
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "127.0.0.1:9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitor
+
+networks:
+  monitor:
+    driver: bridge
