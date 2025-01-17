@@ -27,8 +27,14 @@ This project consists of three main components:
     This will start all services (`backend`, `prometheus`, and `grafana`) in detached mode.
 
 3.  **Start the window monitor script**
+    * Linux: 
     ```bash
       bash ./Scripts/monitor.sh
+    ```
+    
+    * Windows:
+    ```
+    python ./Scripts/monitor.py
     ```
 
     This script will start sending requests to the backend.
